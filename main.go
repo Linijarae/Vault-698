@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"HangmanWeb/src/routeur"
+)
 
-func AZERTY() {
-	fmt.Println("go")
+func main() {
+	//temps.InitTemplate()
+	routeur.InitServ()
+	//Hangman.Menu()
 }

@@ -13,5 +13,5 @@ func MainMenu(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("Error parsing templates: MainMenu")
 		os.Exit(1)
 	}
-	temp.ExecuteTemplate(w, "MainMennu", nil)
+	temp.ExecuteTemplate(w, "mainMenu", nil)
 }

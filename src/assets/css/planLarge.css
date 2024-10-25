@@ -2,6 +2,8 @@ body {
     background-image: url("/static/img/Plan large avec tableau.jpg");
     margin:0;
     padding:0;
+    display: flex;
+    justify-content: space-between; 
     }
 
  .inv-btn1 {
@@ -12,13 +14,14 @@ body {
         outline: none;
         font-size: 28px;
         font-weight: 900 ;
-        padding-top: 170px;
+        padding-top: 250px;
         padding-left: 150px;
         padding-right: 150px;
-        padding-bottom: 750px;
+        padding-bottom: 350px;
     }
 
     .inv-btn2 {
+        display: flex;
         background-color: transparent;
             border: none;
             color: rgb(137, 222, 10);
@@ -29,7 +32,7 @@ body {
             padding-top: 70px;
             padding-left: 40px;
             padding-right: 40px;
-            padding-bottom: 120px;
+            padding-bottom: 120px;         
         }
 
         .inv-btn3 {
@@ -47,25 +50,28 @@ body {
             }
 
     .btn1 {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        height: 75vh;
-        width: 97vw;
+        display: flex;
+        height: 100%;
+        width: 30%;
+        align-items:center;
+        justify-content: center;
+        transform:translateY(100px)
     }
 
     .btn2 {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        height: 55vh;
-        width: 53.5vw;
+        display: flex;
+        height: 100%;
+        width: 30%;
+        align-items:center;
+        justify-content: center;
+        transform: translate(40px, 75px);
     }
 
     .btn3 {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        height: 62vh;
-        width: 31vw;
+        display: flex;
+        height: 100%;
+        width: 30%;
+        align-items:center;
+        justify-content: center;
+        transform:translate(-95px,50px)
     }

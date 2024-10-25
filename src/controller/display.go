@@ -13,5 +13,6 @@ func Display(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("Error parsing templates: diaplay")
 		os.Exit(1)
 	}
-	temp.ExecuteTemplate(w, "display", nil)
+	data := r.FormValue("difficulty")
+	temp.ExecuteTemplate(w, "display", data)
 }

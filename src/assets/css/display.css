@@ -1,3 +1,7 @@
-body {
-    background-image: url("/static/img/Terminal.jpg");
-    }
+body { 
+    background: url(../img/Terminal.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}

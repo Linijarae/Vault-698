@@ -1,0 +1,31 @@
+body { 
+    background: url(../img/Terminal.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.terminal {
+    width: 500px;
+    height: 400px;
+    margin: 50px auto;
+    padding: 20px;
+}
+.difficulty-form label {
+color: rgb(0, 255, 8);
+}
+.difficulty-form input[type='radio'] {
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+    appearance: none;
+    border: 3px solid rgb(0, 255, 8);
+    width: 16px;
+    height: 16px;
+}
+
+input[type='radio']:checked {
+    background: rgb(13, 210, 19);
+}

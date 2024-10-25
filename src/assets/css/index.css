@@ -1,18 +1,25 @@
 body {
     background-image: url("/static/img/E3_Fallout4_VaultTecWorkshop_Door_finished.jpeg");
-    background-size: cover;
     background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
     }
 
-h1 {
-    display: flex;
-    color: rgb(164, 251, 34);
-    font-size: x-large;
-    font-weight: 900 ;
-    font-style: normal;
-text-align: right;
-align-items: flex-end;
-margin-right: 50px;
-margin-bottom: 100px;
+    .invisible-button {
+        background-color: transparent;
+        border: none;
+        color: rgb(137, 222, 10);
+        cursor: pointer; /* Montre le curseur de la souris pour indiquer que c'est cliquable */
+        outline: none; /* Enlève le contour par défaut au clic */
+        font-size: 50px;
+        font-weight: 900 ;
+    }
 
-}
+div {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 305px;
+    width: 400px
+    }

@@ -1,3 +1,71 @@
 body {
     background-image: url("/static/img/Plan large avec tableau.jpg");
+    margin:0;
+    padding:0;
+    }
+
+ .inv-btn1 {
+    background-color: transparent;
+        border: none;
+        color: rgb(137, 222, 10);
+        cursor: pointer;
+        outline: none;
+        font-size: 28px;
+        font-weight: 900 ;
+        padding-top: 170px;
+        padding-left: 150px;
+        padding-right: 150px;
+        padding-bottom: 750px;
+    }
+
+    .inv-btn2 {
+        background-color: transparent;
+            border: none;
+            color: rgb(137, 222, 10);
+            cursor: pointer;
+            outline: none;
+            font-size: 28px;
+            font-weight: 900 ;
+            padding-top: 70px;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 120px;
+        }
+
+        .inv-btn3 {
+            background-color: transparent;
+                border: none;
+                color: rgb(137, 222, 10);
+                cursor: pointer;
+                outline: none;
+                font-size: 28px;
+                font-weight: 900 ;
+                padding-top: 130px;
+                padding-left: 75px;
+                padding-right: 75px;
+                padding-bottom: 120px;
+            }
+
+    .btn1 {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        height: 75vh;
+        width: 97vw;
+    }
+
+    .btn2 {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        height: 55vh;
+        width: 53.5vw;
+    }
+
+    .btn3 {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        height: 62vh;
+        width: 31vw;
     }

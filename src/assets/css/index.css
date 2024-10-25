@@ -1,9 +1,5 @@
 body {
     background-image: url("/static/img/E3_Fallout4_VaultTecWorkshop_Door_finished.jpeg");
-    background-repeat: no-repeat;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
     }
 
     .invisible-button {

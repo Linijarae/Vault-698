@@ -7,25 +7,53 @@ body {
 }
 
 .terminal {
-    width: 500px;
-    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40vw;
+    height: 80vh;
     margin: 50px auto;
     padding: 20px;
 }
+.terminal h1 {
+    font-size: 60px;
+    color: rgb(13, 210, 19)
+}
 .difficulty-form label {
-color: rgb(0, 255, 8);
+color: rgb(13, 210, 19)
 }
 .difficulty-form input[type='radio'] {
     display: flex;
     flex-direction: column;
-
     box-sizing: border-box;
     appearance: none;
     border: 3px solid rgb(0, 255, 8);
     width: 16px;
     height: 16px;
 }
+.difficulty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: 5px;
+    border: 2px solid rgb(0, 255, 8);
+    color: rgb(0, 255, 8);
+    width: 100%;
+}
 
+.difficulty-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.form-submit-button {
+    border-color: rgb(0, 255, 8);
+    background-color: transparent;
+    color: rgb(13, 210, 19);
+}
 input[type='radio']:checked {
     background: rgb(13, 210, 19);
 }

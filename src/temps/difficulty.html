@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/difficulty.css">
     <link rel="stylesheet" href="../static/css/global.css">
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/overseer');
+</style>
+
     <title>Document</title>
 </head>
 <body>
@@ -13,15 +17,24 @@
         <h1>Choix de la difficulté</h1>
         <div class="difficulty-form">
         <form action="/play" method="get">
+            <div class="difficulty">
             <input type="radio" name="difficulty" value="facile" checked>
             <label for="difficulty">Facile</label>
+        </div>
+        <div class="difficulty">
             <input type="radio" name="difficulty" value="moyen">
             <label for="difficulty">Moyen</label>
+        </div>
+            <div class="difficulty">
             <input type="radio" name="difficulty" value="difficile">
             <label for="difficulty">Difficile</label>
-            <input type="submit" value="Valider">
+        </div>
+        <div class="form-submit-button">
+            <input class="form-submit-button" type="submit" value="Valider">
+        </div>
         </form>
     </div>
+
     </div>
 </body>
 </html>

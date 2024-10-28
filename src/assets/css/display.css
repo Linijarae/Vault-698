@@ -5,3 +5,15 @@ body {
     -o-background-size: cover;
     background-size: cover;
 }
+
+.fleche {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 100vh;
+}
+
+.flechesettings{
+    width: 200px;
+    height: 500px;
+}

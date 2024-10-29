@@ -6,10 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/global.css">
     <link rel="stylesheet" href="../static/css/display.css">
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/overseer');
+</style>
     <title>Display</title>
 </head>
 <body>
+    
     <h1>Affichage principal du jeu </h1>
+    <form action="/treatment" method="post">
+        <label for="letter">Devinez une lettre :<br><br></label>
+        <input type="text" id="letter" name="letter" maxlength="1" required>
+        <button type="submit">Deviner</button>
     {{.}}
     <div class="fleche">
     <button class="flechesettings" onclick="window.location.href='/stats'" style="border: none; background: none; padding: 0; cursor: pointer;">

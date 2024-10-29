@@ -12,18 +12,20 @@
     <title>Display</title>
 </head>
 <body>
-    
+    <div class="terminal">
     <h1>Affichage principal du jeu </h1>
     <form action="/treatment" method="post">
         <label for="letter">Devinez une lettre :<br><br></label>
         <input type="text" id="letter" name="letter" maxlength="1" required>
         <button type="submit">Deviner</button>
     {{.}}
+</div>
     <div class="fleche">
     <button class="flechesettings" onclick="window.location.href='/stats'" style="border: none; background: none; padding: 0; cursor: pointer;">
         <img src="/static/img/FLECHEoutline.png" alt="Statistiques" style="width: 150px; height: 200;">
     </button>
     
+
 </div>
 
 </body>

@@ -14,6 +14,7 @@ func InitServ() {
 	http.HandleFunc("/stats", controller.Stats)
 	http.HandleFunc("/MainMenu", controller.MainMenu)
 	http.HandleFunc("/play", controller.Display)
+	http.HandleFunc("/startGame", controller.StartGame)
 
 	rootDoc, _ := os.Getwd()
 	fileserver := http.FileServer(http.Dir(rootDoc + "/src/assets"))

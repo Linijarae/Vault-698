@@ -20,7 +20,8 @@ body {
     color: rgb(13, 210, 19)
 }
 .difficulty-form label {
-color: rgb(13, 210, 19)
+color: rgb(13, 210, 19);
+font-size: 40px;
 }
 .difficulty-form input[type='radio'] {
     display: flex;
@@ -30,6 +31,7 @@ color: rgb(13, 210, 19)
     border: 3px solid rgb(0, 255, 8);
     width: 16px;
     height: 16px;
+    
 }
 .difficulty {
     display: flex;
@@ -40,19 +42,18 @@ color: rgb(13, 210, 19)
     border-radius: 5px;
     border: 2px solid rgb(0, 255, 8);
     color: rgb(0, 255, 8);
-    width: 100%;
 }
 
 .difficulty-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+    width: 80%;
 }
 .form-submit-button {
+    display: flex;
+    justify-content: center;
     border-color: rgb(0, 255, 8);
     background-color: transparent;
     color: rgb(13, 210, 19);
+    font-size: 40px;
 }
 input[type='radio']:checked {
     background: rgb(13, 210, 19);

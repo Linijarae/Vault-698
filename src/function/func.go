@@ -14,10 +14,10 @@ import (
 
 var Word string                //mot a deviner
 var TabUnder []string          //tableau d'underscore
-var win bool                   //verif si on a win (si y'a plus d'underscore)
+var IsWin bool                 //verif si on a win (si y'a plus d'underscore)
 var LetterGuessedList []string //liste des lettres déjà rentrer
 var WordGuessedList []string   //liste des mots déjà rentrer
-var Graph int                  //compteur de point pour le graph
+var AttemptsLeft int           //compteur de point pour le AttemptsLeft
 
 // Start Menu
 func Menu() {
@@ -47,10 +47,10 @@ func NewGame() {
 	ClearTerminal()
 	Word = ""
 	TabUnder = []string{}
-	win = false
+	IsWin = false
 	LetterGuessedList = []string{}
 	WordGuessedList = []string{}
-	Graph = 0
+	AttemptsLeft = 0
 	var input string
 	fmt.Println("Choisissez une difficulté...")
 	fmt.Println("1. Facile")
@@ -138,7 +138,7 @@ func GuessLetter(letter string) {
 			fmt.Println("Mauvaise réponse !")
 			fmt.Println("")
 			fmt.Println("")
-			Graph += 1
+			AttemptsLeft += 1
 			CheckLoose()
 		}
 	} else {
@@ -167,14 +167,14 @@ func GuessWord(word string) {
 	if !IsWordInGuessed(word) {
 		WordGuessedList = append(WordGuessedList, word)
 		if strings.EqualFold(word, Word) {
-			win = true
+			IsWin = true
 			Win()
 		} else {
 			ClearTerminal()
 			fmt.Println("Mauvaise réponse !")
 			fmt.Println("")
 			fmt.Println("")
-			Graph += 2
+			AttemptsLeft += 2
 			CheckLoose()
 		}
 	} else {
@@ -201,7 +201,7 @@ func CheckWin() bool {
 	if slices.Contains(TabUnder, "_") {
 		return false
 	} else {
-		win = true
+		IsWin = true
 		Win()
 		return true
 	}
@@ -209,7 +209,7 @@ func CheckWin() bool {
 
 // Affichage di win et possibilité de relancer une partie
 func Win() {
-	if win {
+	if IsWin {
 		ClearTerminal()
 		fmt.Println("Vous avez gagné!")
 		fmt.Println("Le mot était :", Word)
@@ -238,7 +238,7 @@ func Win() {
 
 // Vérifie si la game est perdue
 func CheckLoose() {
-	if Graph >= 10 {
+	if AttemptsLeft >= 10 {
 		ClearTerminal()
 		DisplayHangman()
 		fmt.Println("Vous avez perdu!")
@@ -294,11 +294,11 @@ func IsLetterInGuessed(l string) bool {
 
 // Affichage du pendu
 func DisplayHangman() {
-	if Graph == 0 {
-		Graph = 1
+	if AttemptsLeft == 0 {
+		AttemptsLeft = 1
 	}
-	if Graph >= 11 {
-		Graph = 10
+	if AttemptsLeft >= 11 {
+		AttemptsLeft = 10
 	}
 	file, err := os.Open("src/GraphHangman/hangman.txt")
 	if err != nil {
@@ -312,8 +312,8 @@ func DisplayHangman() {
 			lines = append(lines, scanner.Text())
 		}
 	}
-	set := Graph * 10
-	for i := 10 * (Graph - 1); i < set; i++ {
+	set := AttemptsLeft * 10
+	for i := 10 * (AttemptsLeft - 1); i < set; i++ {
 		fmt.Println(lines[i])
 	}
 }
@@ -345,7 +345,7 @@ func RandomLetters(nbr int) {
 
 // Ouvre un fichier .txt et choisis aléatoirement un mot à l'intérieur
 // Params: path = chemin du fichier .txt
-func ShowTextFromFile(path string) {
+func ShowTextFromFile(path string) string {
 	file, err := os.Open(path)
 	if err != nil {
 		fmt.Println("Une erreur s'est produite lors de la recherche du fichier")
@@ -364,7 +364,8 @@ func ShowTextFromFile(path string) {
 	}
 	randomIndex := rand.Intn(len(lines))
 	Word = lines[randomIndex]
-	Underscore(Word)
-	NbrRandom()
-	Display()
+	return Word
+	//Underscore(Word)
+	//NbrRandom()
+	//Display()
 }

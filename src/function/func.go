@@ -382,6 +382,6 @@ func VarReset() {
 	Cheat = 0
 }
 
-func RandomDeath() int {
+func Random() int {
 	return rand.Intn(10000000) + 50000
 }

@@ -20,7 +20,7 @@ func Loose(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("Error parsing templates: loose")
 		os.Exit(1)
 	}
-	nbrDeaths := Functions.RandomDeath()
+	nbrDeaths := Functions.Random()
 	DeathCount = DeathCount + nbrDeaths
 
 	data := dataLoosePage{

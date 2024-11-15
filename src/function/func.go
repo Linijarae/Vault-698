@@ -294,8 +294,29 @@ func IsLetterInGuessed(l string) bool {
 // Affichage du pendu
 func DisplayHangman() {
 	switch AttemptsLeft {
+	case 0:
+
 	case 1:
-		HangmanImage = "/assets/img/Erreur 0.png"
+		HangmanImage = "../static/img/Erreur6.png"
+		return
+	case 2:
+		HangmanImage = "../static/img/Erreur5.png"
+		return
+	case 3:
+		HangmanImage = "../static/img/Erreur4.png"
+		return
+	case 4:
+		HangmanImage = "../static/img/Erreur3.png"
+		return
+	case 5:
+		HangmanImage = "../static/img/Erreur2.png"
+		return
+	case 6:
+		HangmanImage = "../static/img/Erreur1.png"
+		return
+	case 7:
+		HangmanImage = "../static/img/Erreur0.png"
+		return
 	}
 
 	/*file, err := os.Open("src/GraphHangman/hangman.txt")

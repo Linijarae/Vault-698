@@ -22,7 +22,7 @@ func Treatment(w http.ResponseWriter, r *http.Request) {
     LetterGuessedList: Functions.LetterGuessedList,
     WordGuessedList:   Functions.WordGuessedList,
     AttemptsLeft:      Functions.AttemptsLeft,
-	HangmanImage:      "",
+	HangmanImage:      Functions.HangmanImage,
     }
 	temp.ExecuteTemplate(w, "display", data)
 }

@@ -20,7 +20,7 @@ var LetterGuessedList []string //liste des lettres déjà rentrer
 var WordGuessedList []string   //liste des mots déjà rentrer
 var AttemptsLeft int           //compteur de point pour le AttemptsLeft
 var Cheat int                  // compteur de tentative de triche
-var HangmanImage string        // address de l'image
+var HangmanImage string        // addresse de l'image
 
 // Start Menu
 func Menu() {
@@ -293,13 +293,11 @@ func IsLetterInGuessed(l string) bool {
 
 // Affichage du pendu
 func DisplayHangman() {
-	if AttemptsLeft == 0 {
-		AttemptsLeft = 1
+	switch AttemptsLeft {
+	case 1:
+		HangmanImage = "/assets/img/Erreur 0.png"
 	}
-	if AttemptsLeft >= 11 {
-		AttemptsLeft = 10
-	}
-	
+
 	/*file, err := os.Open("src/GraphHangman/hangman.txt")
 	if err != nil {
 		log.Fatalf("Error: %s", err)

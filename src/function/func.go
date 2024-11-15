@@ -14,10 +14,13 @@ import (
 
 var Word string                //mot a deviner
 var TabUnder []string          //tableau d'underscore
+var IsGameOver bool            // verif si la game est terminée ou non
 var IsWin bool                 //verif si on a win (si y'a plus d'underscore)
 var LetterGuessedList []string //liste des lettres déjà rentrer
 var WordGuessedList []string   //liste des mots déjà rentrer
 var AttemptsLeft int           //compteur de point pour le AttemptsLeft
+var Cheat int                  // compteur de tentative de triche
+var HangmanImage string        // address de l'image
 
 // Start Menu
 func Menu() {
@@ -368,4 +371,19 @@ func ShowTextFromFile(path string) string {
 	//Underscore(Word)
 	//NbrRandom()
 	//Display()
+}
+
+func VarReset() {
+	Word = ""
+	TabUnder = []string{}
+	IsWin = false
+	IsGameOver = false
+	LetterGuessedList = []string{}
+	WordGuessedList = []string{}
+	AttemptsLeft = 0
+	Cheat = 0
+}
+
+func RandomDeath() int {
+	return rand.Intn(10000000) + 50000
 }

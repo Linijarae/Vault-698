@@ -1,4 +1,4 @@
-package HangmanWeb
+package Functions
 
 import (
 	"bufio"

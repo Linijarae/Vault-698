@@ -15,29 +15,30 @@ type dataPage struct {
 	WordGuessedList   []string
 	AttemptsLeft      int
 	HangmanImage      string
-	IsGameOver        bool
-	IsWin             bool
 }
 
 func StartGame(w http.ResponseWriter, r *http.Request) {
-	temp, tempErr := template.ParseFiles("./src/temps/display.html")
-	if tempErr != nil {
-		fmt.Println("Error parsing templates: display")
-		os.Exit(1)
+	if !Functions.IsGameOver {
+		Functions.VarReset()
+		Functions.ShowTextFromFile(r.FormValue("difficulty"))
+		Functions.Underscore(Functions.Word)
+		Functions.NbrRandom()
+		temp, tempErr := template.ParseFiles("./src/temps/display.html")
+		if tempErr != nil {
+			fmt.Println("Error parsing templates: display")
+			os.Exit(1)
+		}
+		data := dataPage{
+			Word:              Functions.Word,
+			TabUnder:          Functions.TabUnder,
+			LetterGuessedList: Functions.LetterGuessedList,
+			WordGuessedList:   Functions.WordGuessedList,
+			AttemptsLeft:      Functions.AttemptsLeft,
+			HangmanImage:      Functions.HangmanImage,
+		}
+		temp.ExecuteTemplate(w, "display", data)
+	} else {
+
+		http.Redirect(w, r, "/gameOver", http.StatusSeeOther)
 	}
-	Functions.ShowTextFromFile(r.FormValue("difficulty"),)
-	Functions.Underscore(Functions.Word)
-	Functions.NbrRandom()
-	
-	data := dataPage{
-	Word:              Functions.Word,
-    TabUnder:          Functions.TabUnder,
-    LetterGuessedList: Functions.LetterGuessedList,
-    WordGuessedList:   Functions.WordGuessedList,
-    AttemptsLeft:      Functions.AttemptsLeft,
-	HangmanImage:      "",
-    IsGameOver:        false,
-    IsWin:             false,
-    }
-	temp.ExecuteTemplate(w, "display", data)
 }

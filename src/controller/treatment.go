@@ -23,8 +23,6 @@ func Treatment(w http.ResponseWriter, r *http.Request) {
     WordGuessedList:   Functions.WordGuessedList,
     AttemptsLeft:      Functions.AttemptsLeft,
 	HangmanImage:      "",
-    IsGameOver:        false,
-    IsWin:             false,
     }
 	temp.ExecuteTemplate(w, "display", data)
 }

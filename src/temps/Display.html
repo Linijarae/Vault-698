@@ -14,7 +14,9 @@
 <body>
  
     <div class="ensemble">
-        <div class="gauche"></div>
+        <div class="gauche">
+            <img src={{.HangmanImage}}>
+        </div>
     <div class="terminal">
         <div class="underscores">Le mot : {{.TabUnder}}<br>═══════════════════════<br> Lettres essayées : {{.LetterGuessedList}}<br>═══════════════════════<br> Mots essayés : {{.WordGuessedList}}</div>
     <form action="/treatment" method="post">

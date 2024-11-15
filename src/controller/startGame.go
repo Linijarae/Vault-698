@@ -28,13 +28,14 @@ func StartGame(w http.ResponseWriter, r *http.Request) {
 			fmt.Println("Error parsing templates: display")
 			os.Exit(1)
 		}
+		fmt.Println(Functions.AttemptsLeft)
 		data := dataPage{
 			Word:              Functions.Word,
 			TabUnder:          Functions.TabUnder,
 			LetterGuessedList: Functions.LetterGuessedList,
 			WordGuessedList:   Functions.WordGuessedList,
-			AttemptsLeft:      Functions.AttemptsLeft,
-			HangmanImage:      Functions.HangmanImage,
+			AttemptsLeft:      7,
+			HangmanImage:      "../static/img/Erreur0.png",
 		}
 		temp.ExecuteTemplate(w, "display", data)
 	} else {

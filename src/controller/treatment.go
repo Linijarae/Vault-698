@@ -15,7 +15,7 @@ func Treatment(w http.ResponseWriter, r *http.Request) {
 		os.Exit(1)
 	}
 	Functions.Guess(r.FormValue("letter"))
-	
+	fmt.Println(Functions.AttemptsLeft)
 	data := dataPage{
 	Word:              Functions.Word,
     TabUnder:          Functions.TabUnder,

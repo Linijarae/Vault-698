@@ -28,6 +28,7 @@ func StartGame(w http.ResponseWriter, r *http.Request) {
 			fmt.Println("Error parsing templates: display")
 			os.Exit(1)
 		}
+		fmt.Println(Functions.AttemptsLeft)
 		data := dataPage{
 			Word:              Functions.Word,
 			TabUnder:          Functions.TabUnder,

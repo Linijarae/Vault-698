@@ -130,11 +130,9 @@ func GuessLetter(letter string) {
 		if IsInWord(letter) {
 			ChangeTableau(letter)
 			if !CheckWin() {
-				ClearTerminal()
 				Display()
 			}
 		} else {
-			ClearTerminal()
 			fmt.Println("Mauvaise réponse !")
 			fmt.Println("")
 			fmt.Println("")
@@ -142,7 +140,6 @@ func GuessLetter(letter string) {
 			CheckLoose()
 		}
 	} else {
-		ClearTerminal()
 		fmt.Println("Vous avez déjà essayé cette lettre!")
 		fmt.Println("")
 		fmt.Println("")
@@ -170,7 +167,6 @@ func GuessWord(word string) {
 			IsWin = true
 			Win()
 		} else {
-			ClearTerminal()
 			fmt.Println("Mauvaise réponse !")
 			fmt.Println("")
 			fmt.Println("")
@@ -178,7 +174,6 @@ func GuessWord(word string) {
 			CheckLoose()
 		}
 	} else {
-		ClearTerminal()
 		fmt.Println("Vous avez déjà essayé ce mot!")
 		fmt.Println("")
 		fmt.Println("")
@@ -210,7 +205,6 @@ func CheckWin() bool {
 // Affichage di win et possibilité de relancer une partie
 func Win() {
 	if IsWin {
-		ClearTerminal()
 		fmt.Println("Vous avez gagné!")
 		fmt.Println("Le mot était :", Word)
 		fmt.Println(("-------------"))
@@ -238,7 +232,7 @@ func Win() {
 
 // Vérifie si la game est perdue
 func CheckLoose() {
-	if AttemptsLeft >= 10 {
+	if AttemptsLeft <= 0 {
 		DisplayHangman()
 		fmt.Println("Vous avez perdu!")
 		fmt.Println("")
@@ -250,22 +244,20 @@ func CheckLoose() {
 		fmt.Println("1: Oui")
 		fmt.Println("2: Non")
 		fmt.Println("")
-		var input string
+		//var input string
 		fmt.Print("Votre choix: ")
-		fmt.Scan(&input)
-		switch input {
+		/*switch input {
 		case "1":
 			NewGame()
 		case "2":
-			ClearTerminal()
 			fmt.Println("Exiting...")
 			os.Exit(0)
 		default:
 			fmt.Println("Pas compris")
 			CheckLoose()
-		}
+		}*/
 	} else {
-		Display()
+		DisplayHangman()
 	}
 }
 
@@ -294,29 +286,27 @@ func IsLetterInGuessed(l string) bool {
 // Affichage du pendu
 func DisplayHangman() {
 	switch AttemptsLeft {
-	case 0:
 
 	case 1:
 		HangmanImage = "../static/img/Erreur6.png"
-		return
+
 	case 2:
 		HangmanImage = "../static/img/Erreur5.png"
-		return
+	
 	case 3:
 		HangmanImage = "../static/img/Erreur4.png"
-		return
+
 	case 4:
 		HangmanImage = "../static/img/Erreur3.png"
-		return
+	
 	case 5:
 		HangmanImage = "../static/img/Erreur2.png"
-		return
+	
 	case 6:
 		HangmanImage = "../static/img/Erreur1.png"
-		return
+	
 	case 7:
 		HangmanImage = "../static/img/Erreur0.png"
-		return
 	}
 
 	/*file, err := os.Open("src/GraphHangman/hangman.txt")
@@ -397,7 +387,7 @@ func VarReset() {
 	IsGameOver = false
 	LetterGuessedList = []string{}
 	WordGuessedList = []string{}
-	AttemptsLeft = 0
+	AttemptsLeft = 7
 	Cheat = 0
 }
 

@@ -138,7 +138,7 @@ func GuessLetter(letter string) {
 			fmt.Println("Mauvaise réponse !")
 			fmt.Println("")
 			fmt.Println("")
-			AttemptsLeft += 1
+			AttemptsLeft -= 1
 			CheckLoose()
 		}
 	} else {
@@ -174,7 +174,7 @@ func GuessWord(word string) {
 			fmt.Println("Mauvaise réponse !")
 			fmt.Println("")
 			fmt.Println("")
-			AttemptsLeft += 2
+			AttemptsLeft -= 2
 			CheckLoose()
 		}
 	} else {

@@ -33,8 +33,8 @@ func StartGame(w http.ResponseWriter, r *http.Request) {
 			TabUnder:          Functions.TabUnder,
 			LetterGuessedList: Functions.LetterGuessedList,
 			WordGuessedList:   Functions.WordGuessedList,
-			AttemptsLeft:      Functions.AttemptsLeft,
-			HangmanImage:      Functions.HangmanImage,
+			AttemptsLeft:      7,
+			HangmanImage:      "../static/img/Erreur0.png",
 		}
 		temp.ExecuteTemplate(w, "display", data)
 	} else {

@@ -12,9 +12,11 @@
     <title>Display</title>
 </head>
 <body>
+ 
     <div class="ensemble">
-  
+        <div class="gauche"></div>
     <div class="terminal">
+        <div class="underscores">Le mot : {{.TabUnder}}<br>═══════════════════════<br> Lettres essayées : {{.LetterGuessedList}}<br>═══════════════════════<br> Mots essayés : {{.WordGuessedList}}</div>
     <form action="/treatment" method="post">
         <div>
         <label for="letter"> Votre tentative :</label>
@@ -27,7 +29,6 @@
         <div>
         <button class="validation" type="submit" >Deviner</button>
     </div>
-    {{.}}
 </div>
 <div class="fleche">
     <button class="flechesettings" onclick="window.location.href='/stats'" style="border: none; background: none; padding: 0; cursor: pointer;">

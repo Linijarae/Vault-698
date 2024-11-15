@@ -108,14 +108,11 @@ func Display() {
 	fmt.Println("")
 	fmt.Println("Mots déjà tenté : ", WordGuessedList)
 	fmt.Println("")
-	Guess()
+	//Guess()
 }
 
 // Menu pour taper votre lettre/mot
-func Guess() {
-	var input string
-	fmt.Print("Entrez une lettre ou un mot: ")
-	fmt.Scan(&input)
+func Guess(input string) {
 	if len(input) == 1 {
 		GuessLetter(input)
 	} else {
@@ -239,7 +236,6 @@ func Win() {
 // Vérifie si la game est perdue
 func CheckLoose() {
 	if AttemptsLeft >= 10 {
-		ClearTerminal()
 		DisplayHangman()
 		fmt.Println("Vous avez perdu!")
 		fmt.Println("")
@@ -300,7 +296,8 @@ func DisplayHangman() {
 	if AttemptsLeft >= 11 {
 		AttemptsLeft = 10
 	}
-	file, err := os.Open("src/GraphHangman/hangman.txt")
+	
+	/*file, err := os.Open("src/GraphHangman/hangman.txt")
 	if err != nil {
 		log.Fatalf("Error: %s", err)
 	}
@@ -316,6 +313,7 @@ func DisplayHangman() {
 	for i := 10 * (AttemptsLeft - 1); i < set; i++ {
 		fmt.Println(lines[i])
 	}
+	*/
 }
 
 // Définie le nombre de lettres bonus en fonction de la taille du mot

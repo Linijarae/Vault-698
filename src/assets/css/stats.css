@@ -13,3 +13,11 @@ body {
         width: 200px;
         height: 500px;
     }
+
+    p {
+        display: flex;
+font-size: 42px;
+color: black;
+font-weight: bold;
+justify-content: center;
+    }

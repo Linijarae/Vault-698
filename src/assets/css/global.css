@@ -5,7 +5,12 @@
   
   *{
     font-family: "Overseer", "Sans-serif";
-    color: rgb(13, 210, 19)
+    color: rgb(13, 210, 19);
+    text-shadow:
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    -1px -1px 0 #000,
+    1px -1px 0 #000;
   }
 body {
     background-repeat: no-repeat;

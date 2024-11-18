@@ -1,0 +1,22 @@
+body {
+    background-image: url("/static/img/E3_Fallout4_VaultTecWorkshop_Door_finished.jpeg");
+    }
+
+form {
+        background-color: transparent;
+        border: none;
+        color: rgb(13, 210, 19);
+        cursor: pointer;
+        outline: none;
+        font-size: 50px;
+        font-weight: 900 ;
+        padding: 20px;
+    }
+
+div {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 30vh;
+    width: 35vw;
+    }

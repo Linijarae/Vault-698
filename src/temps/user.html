@@ -1,0 +1,21 @@
+{{define "user"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=*, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/user.css">
+    <link rel="stylesheet" href="../static/css/global.css">
+    <title>Vault-698</title>
+</head>
+<body>
+    <div>
+        <form action="/create" method="POST">
+            <label for="username">Entrez votre pseudo : </label>
+            <input type="text" id="username" name="username" required>
+            <button type="submit">[ Entrer ]</button>
+        </form>
+</div>
+</body>
+</html>
+{{end}}

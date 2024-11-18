@@ -9,6 +9,7 @@ import (
 )
 
 type dataPage struct {
+	IsGameOver       bool
 	Word              string
 	TabUnder          []string
 	LetterGuessedList []string
@@ -30,6 +31,7 @@ func StartGame(w http.ResponseWriter, r *http.Request) {
 		}
 		fmt.Println(Functions.AttemptsLeft)
 		data := dataPage{
+			IsGameOver:        Functions.IsGameOver,
 			Word:              Functions.Word,
 			TabUnder:          Functions.TabUnder,
 			LetterGuessedList: Functions.LetterGuessedList,

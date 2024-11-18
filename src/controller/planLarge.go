@@ -8,6 +8,7 @@ import (
 )
 
 func PlanLarge(w http.ResponseWriter, r *http.Request) {
+
 	temp, tempErr := template.ParseFiles("./src/temps/planLarge.html")
 	if tempErr != nil {
 		fmt.Println("Error parsing templates: PlanLarge")

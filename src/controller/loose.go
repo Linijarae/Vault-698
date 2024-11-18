@@ -11,11 +11,12 @@ import (
 var DeathCount int
 
 type dataLoosePage struct {
-	NbrDeaths int 
+	NbrDeaths  int
 	DeathCount int
 }
+
 func Loose(w http.ResponseWriter, r *http.Request) {
-	temp, tempErr := template.ParseFiles("./src/temps/Loose.html")
+	temp, tempErr := template.ParseFiles("./src/temps/loose.html")
 	if tempErr != nil {
 		fmt.Println("Error parsing templates: loose")
 		os.Exit(1)
@@ -24,8 +25,8 @@ func Loose(w http.ResponseWriter, r *http.Request) {
 	DeathCount = DeathCount + nbrDeaths
 
 	data := dataLoosePage{
-		NbrDeaths: nbrDeaths,
-		DeathCount: DeathCount, 
+		NbrDeaths:  nbrDeaths,
+		DeathCount: DeathCount,
 	}
 	fmt.Println(nbrDeaths)
 	fmt.Println(DeathCount)

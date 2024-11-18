@@ -8,6 +8,7 @@ import (
 )
 
 func Difficulty(w http.ResponseWriter, r *http.Request) {
+
 	temp, tempErr := template.ParseFiles("./src/temps/difficulty.html")
 	if tempErr != nil {
 		fmt.Println("Error parsing templates: Difficulty")

@@ -16,10 +16,10 @@ type dataPage struct {
 	WordGuessedList   []string
 	AttemptsLeft      int
 	HangmanImage      string
+	Message           string
 }
 
 func StartGame(w http.ResponseWriter, r *http.Request) {
-	if !Functions.IsGameOver {
 		Functions.VarReset()
 		Functions.ShowTextFromFile(r.FormValue("difficulty"))
 		Functions.Underscore(Functions.Word)
@@ -40,7 +40,5 @@ func StartGame(w http.ResponseWriter, r *http.Request) {
 			HangmanImage:      "../static/img/Erreur0.png",
 		}
 		temp.ExecuteTemplate(w, "display", data)
-	} else if Functions.IsGameOver {
-		http.Redirect(w, r, "/loose", http.StatusSeeOther)
 	}
-}
+

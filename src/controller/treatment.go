@@ -9,20 +9,36 @@ import (
 )
 
 func Treatment(w http.ResponseWriter, r *http.Request) {
-	temp, tempErr := template.ParseFiles("./src/temps/display.html")
-	if tempErr != nil {
-		fmt.Println("Error parsing templates: display")
-		os.Exit(1)
+	var msg string
+	if Functions.IsLetterInGuessed(r.FormValue("letter")) {
+		msg = "Cette lettre a déjà été utilisée."
+	} else if Functions.IsWordInGuessed(r.FormValue("letter")) {
+		msg = "Ce mot a déjà été utilisée."
 	}
 	Functions.Guess(r.FormValue("letter"))
-	fmt.Println(Functions.AttemptsLeft)
-	data := dataPage{
-		Word:              Functions.Word,
-		TabUnder:          Functions.TabUnder,
-		LetterGuessedList: Functions.LetterGuessedList,
-		WordGuessedList:   Functions.WordGuessedList,
-		AttemptsLeft:      Functions.AttemptsLeft,
-		HangmanImage:      Functions.HangmanImage,
+	Functions.DisplayHangman()
+	if Functions.AttemptsLeft <= 0 {
+		http.Redirect(w, r, "/loose", http.StatusSeeOther)
+		return
+	} else if Functions.CheckWin() || Functions.IsWin {
+		http.Redirect(w, r, "/win", http.StatusSeeOther)
+		return
+	} else {
+		temp, tempErr := template.ParseFiles("./src/temps/display.html")
+		if tempErr != nil {
+			fmt.Println("Error parsing templates: display")
+			os.Exit(1)
+		}
+		fmt.Println(Functions.AttemptsLeft)
+		data := dataPage{
+			Word:              Functions.Word,
+			TabUnder:          Functions.TabUnder,
+			LetterGuessedList: Functions.LetterGuessedList,
+			WordGuessedList:   Functions.WordGuessedList,
+			AttemptsLeft:      Functions.AttemptsLeft,
+			HangmanImage:      Functions.HangmanImage,
+			Message:           msg,
+		}
+		temp.ExecuteTemplate(w, "display", data)
 	}
-	temp.ExecuteTemplate(w, "display", data)
 }

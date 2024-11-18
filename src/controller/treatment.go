@@ -10,6 +10,7 @@ import (
 
 func Treatment(w http.ResponseWriter, r *http.Request) {
 	var msg string
+	fmt.Println("AttemptsLeft: ", Functions.AttemptsLeft)
 	if Functions.IsLetterInGuessed(r.FormValue("letter")) {
 		msg = "Cette lettre a déjà été utilisée."
 	} else if Functions.IsWordInGuessed(r.FormValue("letter")) {

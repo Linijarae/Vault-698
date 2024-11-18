@@ -17,21 +17,21 @@ type dataWinPage struct {
 }
 
 func Win(w http.ResponseWriter, r *http.Request) {
-		temp, tempErr := template.ParseFiles("./src/temps/win.html")
-		if tempErr != nil {
-			fmt.Println("Error parsing templates: win")
-			os.Exit(1)
-		}
-		nbrSaved := Functions.Random()
-		SavedCount = SavedCount + nbrSaved
-
-		data := dataWinPage{
-			Word:       Functions.Word,
-			NbrSaved:   nbrSaved,
-			SavedCount: SavedCount,
-		}
-		fmt.Println(nbrSaved)
-		fmt.Println(SavedCount)
-		temp.ExecuteTemplate(w, "win", data)
+	temp, tempErr := template.ParseFiles("./src/temps/win.html")
+	if tempErr != nil {
+		fmt.Println("Error parsing templates: win")
+		os.Exit(1)
 	}
+	Functions.VarReset()
+	nbrSaved := Functions.Random()
+	SavedCount = SavedCount + nbrSaved
 
+	data := dataWinPage{
+		Word:       Functions.Word,
+		NbrSaved:   nbrSaved,
+		SavedCount: SavedCount,
+	}
+	fmt.Println(nbrSaved)
+	fmt.Println(SavedCount)
+	temp.ExecuteTemplate(w, "win", data)
+}

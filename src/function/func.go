@@ -165,6 +165,8 @@ func GuessWord(word string) {
 		WordGuessedList = append(WordGuessedList, word)
 		if strings.EqualFold(word, Word) {
 			IsWin = true
+			IsGameOver = true
+			WinTotal += 1
 			//Win()
 		} else {
 			fmt.Println("Mauvaise réponse !")
@@ -197,6 +199,7 @@ func CheckWin() bool {
 		return false
 	} else {
 		IsWin = true
+		IsGameOver = true
 		WinTotal += 1
 		//Win()
 		return true
@@ -385,7 +388,7 @@ func VarReset() {
 	Word = ""
 	TabUnder = []string{}
 	IsWin = false
-	IsGameOver = false
+	IsGameOver = true
 	LetterGuessedList = []string{}
 	WordGuessedList = []string{}
 	AttemptsLeft = 7

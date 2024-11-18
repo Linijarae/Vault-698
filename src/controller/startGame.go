@@ -20,7 +20,7 @@ type dataPage struct {
 }
 
 func StartGame(w http.ResponseWriter, r *http.Request) {
-		Functions.VarReset()
+		Functions.IsGameOver = false
 		Functions.ShowTextFromFile(r.FormValue("difficulty"))
 		Functions.Underscore(Functions.Word)
 		Functions.NbrRandom()

@@ -9,7 +9,7 @@ import (
 )
 
 type dataPage struct {
-	IsGameOver       bool
+	IsGameOver        bool
 	Word              string
 	TabUnder          []string
 	LetterGuessedList []string
@@ -20,6 +20,16 @@ type dataPage struct {
 }
 
 func StartGame(w http.ResponseWriter, r *http.Request) {
+	if !Functions.IsGameOver {
+		if Functions.Cheat >= 1 {
+			Functions.Cheat = 0
+			http.Redirect(w, r, "/cheater", http.StatusSeeOther)
+			return
+		} else {
+			Functions.Cheat += 1
+			http.Redirect(w, r, "/treatment", http.StatusSeeOther)
+		}
+	} else {
 		Functions.IsGameOver = false
 		Functions.ShowTextFromFile(r.FormValue("difficulty"))
 		Functions.Underscore(Functions.Word)
@@ -42,3 +52,4 @@ func StartGame(w http.ResponseWriter, r *http.Request) {
 		temp.ExecuteTemplate(w, "display", data)
 	}
 
+}

@@ -15,7 +15,7 @@ type dataLoosePage struct {
 	DeathCount int
 }
 func Loose(w http.ResponseWriter, r *http.Request) {
-	temp, tempErr := template.ParseFiles("./src/temps/loose.html")
+	temp, tempErr := template.ParseFiles("./src/temps/Loose.html")
 	if tempErr != nil {
 		fmt.Println("Error parsing templates: loose")
 		os.Exit(1)

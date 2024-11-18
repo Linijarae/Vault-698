@@ -12,6 +12,7 @@ func InitServ() {
 	http.HandleFunc("/planLarge", controller.PlanLarge)
 	http.HandleFunc("/difficulty", controller.Difficulty)
 	http.HandleFunc("/stats", controller.Stats)
+	http.HandleFunc("/exitStats", controller.ExitStats)
 	http.HandleFunc("/MainMenu", controller.MainMenu)
 	http.HandleFunc("/play", controller.Display)
 	http.HandleFunc("/startGame", controller.StartGame)

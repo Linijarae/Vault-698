@@ -14,6 +14,8 @@ func Treatment(w http.ResponseWriter, r *http.Request) {
 		msg = "Cette lettre a déjà été utilisée."
 	} else if Functions.IsWordInGuessed(r.FormValue("letter")) {
 		msg = "Ce mot a déjà été utilisée."
+	} else {
+		msg = ""
 	}
 	Functions.Guess(r.FormValue("letter"))
 	Functions.DisplayHangman()

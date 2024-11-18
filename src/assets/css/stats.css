@@ -20,4 +20,16 @@ font-size: 42px;
 color: black;
 font-weight: bold;
 justify-content: center;
+text-shadow: none;
+    }
+
+    h2 {
+        display: flex;
+font-size: 65px;
+color: black;
+font-weight: bold;
+justify-content: center;
+text-shadow: none;  
+text-decoration: underline;
+text-decoration-color: rgb(13, 210, 19);
     }

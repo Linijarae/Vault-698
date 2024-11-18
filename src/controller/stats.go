@@ -11,6 +11,7 @@ import (
 
 
 type dataStatPage struct {
+	Username string
 	WinTotal   int
 	LooseTotal int
 	SavedCount int
@@ -25,6 +26,7 @@ func Stats(w http.ResponseWriter, r *http.Request) {
 	}
 
 	data := dataStatPage{
+		Username: Username,
 		SavedCount: SavedCount,
 		DeathCount: DeathCount,
 		WinTotal:   Functions.WinTotal,

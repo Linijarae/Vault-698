@@ -11,14 +11,17 @@
 <body>
     <div class="terminal">
         <div class="title">
-    <h1>Vous n'avez pas désamorcé la bombe à temps !!</h1>
+    <h2>Vous n'avez pas désamorcé la bombe à temps !!</h1>
 </div>
  <div class="image">
     <img src="../static/img/Bomb.png" alt="Bomb">
 </div>
 <div class="text">
-    <p>{{.NbrDeaths}} personnes sont mortes</p>
-    <p>Jusqu'à maintenant, vous avez échoué à sauver {{.DeathCount}} personnes</p>
+    <p>{{.NbrDeaths}} personnes sont mortes <br>
+    Jusqu'à maintenant, vous avez échoué à sauver {{.DeathCount}} personnes</p>
+</div>
+<div>
+    <button class="invisible-button" onclick="window.location.href='/planLarge'">[ RETOUR ]</button>
 </div>
     
 </div>

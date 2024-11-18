@@ -118,8 +118,10 @@ func Underscore(word string) {
 func Guess(input string) {
 	if len(input) == 1 {
 		GuessLetter(input)
-	} else {
+	} else if len(input) > 1 {
 		GuessWord(input)
+	} else {
+		fmt.Println("")
 	}
 }
 

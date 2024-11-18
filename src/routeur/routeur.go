@@ -21,6 +21,7 @@ func InitServ() {
 	http.HandleFunc("/loose", controller.Loose)
 	http.HandleFunc("/cheater", controller.Cheater)
 	http.HandleFunc("/user", controller.User)
+	http.HandleFunc("/usertreatment", controller.UserTreatment)
 
 	rootDoc, _ := os.Getwd()
 	fileserver := http.FileServer(http.Dir(rootDoc + "/src/assets"))

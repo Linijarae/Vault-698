@@ -233,7 +233,7 @@ func Win() {
 // Vérifie si la game est perdue
 func CheckLoose() {
 	if AttemptsLeft <= 0 {
-		DisplayHangman()
+		IsGameOver = true
 		fmt.Println("Vous avez perdu!")
 		fmt.Println("")
 		fmt.Println("Le mot était :", Word)

@@ -17,11 +17,12 @@ func Treatment(w http.ResponseWriter, r *http.Request) {
 	Functions.Guess(r.FormValue("letter"))
 	fmt.Println(Functions.AttemptsLeft)
 	data := dataPage{
-	Word:              Functions.Word,
-    TabUnder:          Functions.TabUnder,
-    LetterGuessedList: Functions.LetterGuessedList,
-    WordGuessedList:   Functions.WordGuessedList,
-	HangmanImage:      Functions.HangmanImage,
-    }
+		Word:              Functions.Word,
+		TabUnder:          Functions.TabUnder,
+		LetterGuessedList: Functions.LetterGuessedList,
+		WordGuessedList:   Functions.WordGuessedList,
+		AttemptsLeft:      Functions.AttemptsLeft,
+		HangmanImage:      Functions.HangmanImage,
+	}
 	temp.ExecuteTemplate(w, "display", data)
 }

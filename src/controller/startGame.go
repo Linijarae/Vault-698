@@ -9,6 +9,7 @@ import (
 )
 
 type dataPage struct {
+	IsGameOver       bool
 	Word              string
 	TabUnder          []string
 	LetterGuessedList []string
@@ -30,6 +31,7 @@ func StartGame(w http.ResponseWriter, r *http.Request) {
 		}
 		fmt.Println(Functions.AttemptsLeft)
 		data := dataPage{
+			IsGameOver:        Functions.IsGameOver,
 			Word:              Functions.Word,
 			TabUnder:          Functions.TabUnder,
 			LetterGuessedList: Functions.LetterGuessedList,
@@ -38,8 +40,7 @@ func StartGame(w http.ResponseWriter, r *http.Request) {
 			HangmanImage:      "../static/img/Erreur0.png",
 		}
 		temp.ExecuteTemplate(w, "display", data)
-	} else {
-
-		http.Redirect(w, r, "/gameOver", http.StatusSeeOther)
+	} else if Functions.IsGameOver {
+		http.Redirect(w, r, "/loose", http.StatusSeeOther)
 	}
 }

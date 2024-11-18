@@ -9,6 +9,21 @@
 - Maintenant ouvrez votre navigateur internet et tapez dans la barre d'url : http://localhost:8080/
 - Vous êtes désormais sur le jeu ! Amusez-vous !
 
+### Les différentes routes
+- / -> Index
+- /planLarge -> Menu intermediaire
+- /difficulty -> Choix de la difficulté
+- /stats -> Affichage des stats
+- /exitStats -> Route de traitement qui, selon l'état de la partie, renvoie au /planLarge ou à l'affichage de la partie
+- /play -> Affichage principal de la partie
+- /startGame -> Permet d'initialiser une partie
+- /win -> Affichage de l'écran de fin lors d'une partie gagnée
+- /treatement -> Traitement des donnée du pendu
+- /loose -> Affichage de l'écran de fin lors d'une partie perdu
+- /cheater -> Affichage de l'écran de triche lors de trop nombreuses tentative de changer de page via l'URL
+- /user -> Page d'entrée du pseudo
+- /usertreatment -> Atribution du pseudo à une variable globale
+
 ## Informations techniques
 
 - Ce jeu utilise le langage Golang, Html et Css.

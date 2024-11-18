@@ -19,6 +19,8 @@ var WordGuessedList []string   //liste des mots déjà rentrer
 var AttemptsLeft int           //compteur de point pour le AttemptsLeft
 var Cheat int                  // compteur de tentative de triche
 var HangmanImage string        // addresse de l'image
+var WinTotal int
+var LooseTotal int
 
 // Start Menu
 /*func Menu() {
@@ -195,6 +197,7 @@ func CheckWin() bool {
 		return false
 	} else {
 		IsWin = true
+		WinTotal += 1
 		//Win()
 		return true
 	}

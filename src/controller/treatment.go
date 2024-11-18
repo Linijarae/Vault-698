@@ -20,6 +20,7 @@ func Treatment(w http.ResponseWriter, r *http.Request) {
 	Functions.Guess(r.FormValue("letter"))
 	Functions.DisplayHangman()
 	if Functions.AttemptsLeft <= 0 {
+		Functions.LooseTotal += 1
 		http.Redirect(w, r, "/loose", http.StatusSeeOther)
 		return
 	} else if Functions.CheckWin() || Functions.IsWin {

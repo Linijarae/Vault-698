@@ -8,6 +8,7 @@ import (
 )
 
 func MainMenu(w http.ResponseWriter, r *http.Request) {
+
 	temp, tempErr := template.ParseFiles("./src/temps/MainMenu.html")
 	if tempErr != nil {
 		fmt.Println("Error parsing templates: MainMenu")

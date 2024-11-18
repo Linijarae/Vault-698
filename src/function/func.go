@@ -6,8 +6,6 @@ import (
 	"log"
 	"math/rand"
 	"os"
-	"os/exec"
-	"runtime"
 	"slices"
 	"strings"
 )
@@ -23,7 +21,7 @@ var Cheat int                  // compteur de tentative de triche
 var HangmanImage string        // addresse de l'image
 
 // Start Menu
-func Menu() {
+/*func Menu() {
 	//ClearTerminal()
 	var input string
 	fmt.Println("Welcome to Hangman!")
@@ -84,7 +82,7 @@ func ClearTerminal() {
 		cmd.Stdout = os.Stdout
 		cmd.Run()
 	}
-}
+}*/
 
 // Tableau d'underscore correspondant au mot à deviner
 // Params : word = mot choisis dans la liste de mot
@@ -100,7 +98,7 @@ func Underscore(word string) {
 }
 
 // Affichage de base
-func Display() {
+/*func Display() {
 	DisplayHangman()
 	fmt.Print("Voici le mot à deviner : ")
 	for _, i := range TabUnder {
@@ -112,7 +110,7 @@ func Display() {
 	fmt.Println("Mots déjà tenté : ", WordGuessedList)
 	fmt.Println("")
 	//Guess()
-}
+}*/
 
 // Menu pour taper votre lettre/mot
 func Guess(input string) {
@@ -129,21 +127,21 @@ func GuessLetter(letter string) {
 		LetterGuessedList = append(LetterGuessedList, strings.ToLower(letter))
 		if IsInWord(letter) {
 			ChangeTableau(letter)
-			if !CheckWin() {
+			/*if !CheckWin() {
 				Display()
-			}
+			}*/
 		} else {
 			fmt.Println("Mauvaise réponse !")
 			fmt.Println("")
 			fmt.Println("")
 			AttemptsLeft -= 1
-			CheckLoose()
+			//CheckLoose()
 		}
 	} else {
 		fmt.Println("Vous avez déjà essayé cette lettre!")
 		fmt.Println("")
 		fmt.Println("")
-		Display()
+		//Display()
 	}
 }
 
@@ -165,19 +163,19 @@ func GuessWord(word string) {
 		WordGuessedList = append(WordGuessedList, word)
 		if strings.EqualFold(word, Word) {
 			IsWin = true
-			Win()
+			//Win()
 		} else {
 			fmt.Println("Mauvaise réponse !")
 			fmt.Println("")
 			fmt.Println("")
 			AttemptsLeft -= 2
-			CheckLoose()
+			//CheckLoose()
 		}
 	} else {
 		fmt.Println("Vous avez déjà essayé ce mot!")
 		fmt.Println("")
 		fmt.Println("")
-		Display()
+		//Display()
 	}
 }
 
@@ -197,13 +195,13 @@ func CheckWin() bool {
 		return false
 	} else {
 		IsWin = true
-		Win()
+		//Win()
 		return true
 	}
 }
 
 // Affichage di win et possibilité de relancer une partie
-func Win() {
+/*func Win() {
 	if IsWin {
 		fmt.Println("Vous avez gagné!")
 		fmt.Println("Le mot était :", Word)
@@ -255,12 +253,12 @@ func CheckLoose() {
 		default:
 			fmt.Println("Pas compris")
 			CheckLoose()
-		}*/
+		}
 	} else {
 		DisplayHangman()
 	}
 }
-
+*/
 // Vérifie si le mot est déjà dans la liste des mots déjà rentrés
 // Params: w = mot en input
 func IsWordInGuessed(w string) bool {
@@ -292,19 +290,19 @@ func DisplayHangman() {
 
 	case 2:
 		HangmanImage = "../static/img/Erreur5.png"
-	
+
 	case 3:
 		HangmanImage = "../static/img/Erreur4.png"
 
 	case 4:
 		HangmanImage = "../static/img/Erreur3.png"
-	
+
 	case 5:
 		HangmanImage = "../static/img/Erreur2.png"
-	
+
 	case 6:
 		HangmanImage = "../static/img/Erreur1.png"
-	
+
 	case 7:
 		HangmanImage = "../static/img/Erreur0.png"
 	}
@@ -372,8 +370,8 @@ func ShowTextFromFile(path string) string {
 	if err := sc.Err(); err != nil {
 		log.Fatal(err)
 	}
-	randomIndex := rand.Intn(len(lines))
-	Word = lines[randomIndex]
+	//randomIndex := rand.Intn(len(lines))
+	Word = "Debut" //lines[randomIndex]
 	return Word
 	//Underscore(Word)
 	//NbrRandom()

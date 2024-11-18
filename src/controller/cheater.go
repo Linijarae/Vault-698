@@ -8,6 +8,7 @@ import (
 )
 
 func Cheater(w http.ResponseWriter, r *http.Request) {
+	
 	temp, tempErr := template.ParseFiles("./src/temps/cheater.html")
 	if tempErr != nil {
 		fmt.Println("Error parsing templates: cheater")

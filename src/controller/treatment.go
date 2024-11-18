@@ -22,9 +22,11 @@ func Treatment(w http.ResponseWriter, r *http.Request) {
 	Functions.DisplayHangman()
 	if Functions.AttemptsLeft <= 0 {
 		Functions.LooseTotal += 1
+		Functions.IsGameOver = true
 		http.Redirect(w, r, "/loose", http.StatusSeeOther)
 		return
 	} else if Functions.CheckWin() || Functions.IsWin {
+		
 		http.Redirect(w, r, "/win", http.StatusSeeOther)
 		return
 	} else {

@@ -16,20 +16,31 @@ type dataLoosePage struct {
 }
 
 func Loose(w http.ResponseWriter, r *http.Request) {
-	temp, tempErr := template.ParseFiles("./src/temps/loose.html")
-	if tempErr != nil {
-		fmt.Println("Error parsing templates: loose")
-		os.Exit(1)
-	}
-	Functions.VarReset()
-	nbrDeaths := Functions.Random()
-	DeathCount = DeathCount + nbrDeaths
+	if !Functions.IsGameOver {
+		if Functions.Cheat >= 1 {
+			Functions.Cheat = 0
+			http.Redirect(w, r, "/cheater", http.StatusSeeOther)
+			return
+		} else {
+			Functions.Cheat += 1
+			http.Redirect(w, r, "/treatment", http.StatusSeeOther)
+		}
+	} else {
+		temp, tempErr := template.ParseFiles("./src/temps/loose.html")
+		if tempErr != nil {
+			fmt.Println("Error parsing templates: loose")
+			os.Exit(1)
+		}
+		Functions.VarReset()
+		nbrDeaths := Functions.Random()
+		DeathCount = DeathCount + nbrDeaths
 
-	data := dataLoosePage{
-		NbrDeaths:  nbrDeaths,
-		DeathCount: DeathCount,
+		data := dataLoosePage{
+			NbrDeaths:  nbrDeaths,
+			DeathCount: DeathCount,
+		}
+		fmt.Println(nbrDeaths)
+		fmt.Println(DeathCount)
+		temp.ExecuteTemplate(w, "loose", data)
 	}
-	fmt.Println(nbrDeaths)
-	fmt.Println(DeathCount)
-	temp.ExecuteTemplate(w, "loose", data)
 }

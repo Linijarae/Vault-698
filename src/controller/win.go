@@ -18,7 +18,7 @@ type dataWinPage struct {
 
 func Win(w http.ResponseWriter, r *http.Request) {
 	if !Functions.IsGameOver {
-		if Functions.Cheat >= 2 {
+		if Functions.Cheat >= 1 {
 			Functions.Cheat = 0
 			http.Redirect(w, r, "/cheater", http.StatusSeeOther)
 			return

@@ -370,8 +370,8 @@ func ShowTextFromFile(path string) string {
 	if err := sc.Err(); err != nil {
 		log.Fatal(err)
 	}
-	//randomIndex := rand.Intn(len(lines))
-	Word = "Debut" //lines[randomIndex]
+	randomIndex := rand.Intn(len(lines))
+	Word = lines[randomIndex]
 	return Word
 	//Underscore(Word)
 	//NbrRandom()
